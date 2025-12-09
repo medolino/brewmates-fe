@@ -1,3 +1,5 @@
+'use server'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -7,7 +9,7 @@ import Typography from '@mui/material/Typography'
 
 import PageContainer from '@/components/Containers/PageContainer'
 
-export default function About() {
+export default async function About() {
   return (
     <PageContainer>
       <Box sx={{ mt: 10, mb: 10 }}>

@@ -24,10 +24,3 @@ export const getUrl = (url: string, params?: Record<string, any>) => {
 }
 
 export const buildQuery = (query: Record<string, any>) => RequestQueryBuilder.create(query).query()
-
-// api.interceptors.request.use(config => {
-//   // Add auth headers here (e.g., from a token store)
-//   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-//   if (token) config.headers.Authorization = `Bearer ${token}`;
-//   return config;
-// })

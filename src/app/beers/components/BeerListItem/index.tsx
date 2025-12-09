@@ -46,7 +46,6 @@ export default function BeerListItem(props: BeerListItemProps) {
   const urlEncodedStyle = encodeURIComponent(style)
 
   const imageUrl = `${apiBaseUrl}/api/beer-labels/${urlEncodedStyle}`
-  console.log(imageUrl)
 
   return (
     <Link href={beerUrl}>

@@ -1,5 +1,6 @@
+'use server'
+
 import Image from 'next/image'
-import Link from 'next/link'
 
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
@@ -11,7 +12,7 @@ import IntroContainer from './components/IntroContainer'
 import IntroTitle from './components/IntroTitle'
 import IntroText from './components/IntroText'
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <IntroContainer>
@@ -34,7 +35,7 @@ export default function Home() {
           <Button
             variant="contained"
             color="primary"
-            LinkComponent={Link}
+            component="a"
             size="large"
             href="/beers"
             sx={{ mt: 2 }}
@@ -70,13 +71,7 @@ export default function Home() {
                 stories from the brewhouse, and celebrate the people who made it all possible.
               </Typography>
 
-              <Button
-                variant="contained"
-                color="primary"
-                LinkComponent={Link}
-                size="large"
-                href="/about"
-              >
+              <Button variant="contained" color="primary" component="a" size="large" href="/about">
                 Read more about how it all started
               </Button>
             </Grid>

@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: ./
+      target: production
+      args:
+        - ENVIRONMENT=production
+    container_name: ${FRONTEND_CONTAINER_NAME:-brew-mates-fe}
+    restart: always
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true
