@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { ThemeProvider } from '@mui/material/styles'
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
   description: 'A beer for friends'
 }
 
+// Google Analytics Measurement ID
+const MEASUREMENT_ID = 'G-MKB0B2SXXB'
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -33,6 +37,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${MEASUREMENT_ID}');
+      `}
+            </Script>
+          </>
+        )}
         <AppRouterCacheProvider options={{ key: 'css' }}>
           <ThemeProvider theme={theme}>
             <TransitionProvider>

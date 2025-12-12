@@ -14,9 +14,6 @@ const nextConfig: NextConfig = {
   typescript: {
     // TODO: remove ignore when preparing for production
     ignoreBuildErrors: true
-  },
-  eslint: {
-    ignoreDuringBuilds: true
   }
 }
 
